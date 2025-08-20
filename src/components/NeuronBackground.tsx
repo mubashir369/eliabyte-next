@@ -8,13 +8,16 @@ export default function NeuronBackground() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!canvas || !ctx) return;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles: { x: number; y: number; dx: number; dy: number }[] = [];
+    type Particle = { x: number; y: number; dx: number; dy: number };
+    const particles: Particle[] = [];
 
     for (let i = 0; i < 80; i++) {
       particles.push({
@@ -26,6 +29,8 @@ export default function NeuronBackground() {
     }
 
     function animate() {
+      if (!canvas || !ctx) return; // ✅ safety check
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
@@ -58,6 +63,7 @@ export default function NeuronBackground() {
     animate();
 
     const resize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };

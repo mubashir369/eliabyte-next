@@ -17,7 +17,8 @@ export default function Home() {
           <AnimatedText />
 
           {/* Laptop animation */}
-          <LaptopAnimation className="w-3/4 md:w-full" />
+          {/* <LaptopAnimation className="w-3/4 md:w-full" /> */}
+          <LaptopAnimation  />
 
           <p className="text-lg md:text-xl text-gray-200">
         
@@ -30,7 +31,8 @@ export default function Home() {
 
         {/* Right: Brain Animation */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <BrainAnimation className="w-full h-full" />
+          <BrainAnimation />
+           {/* <BrainAnimation className="w-full h-full" /> */}
         </div>
       </div>
     </main>
