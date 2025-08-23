@@ -1,36 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-export default function AboutSection() {
-  // animation variants for boxes
-const boxVariants = {
-  hidden: { opacity: 0, y: 80 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 100, damping: 12 } 
+const boxVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
-
+export default function AboutSection() {
   return (
     <section className="relative py-20 bg-gray-900 text-gray-200">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-green-400 mb-10">
           About <span className="text-white">Us</span>
         </h2>
 
-        {/* Intro */}
-        <p className="text-lg text-center max-w-3xl mx-auto mb-12 leading-relaxed">
-          Welcome to <span className="font-semibold text-green-300">Eliabyte</span>, 
-          your trusted partner for innovative IT solutions. We are dedicated to 
-          helping businesses and individuals achieve their goals with 
-          cutting-edge technology and exceptional service.
-        </p>
-
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
@@ -64,7 +52,6 @@ const boxVariants = {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
               className="p-6 bg-gray-800 rounded-2xl shadow hover:shadow-green-500/20 transition"
             >
               <h3 className="text-xl font-semibold text-green-400 mb-3">
