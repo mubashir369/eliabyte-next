@@ -61,7 +61,7 @@ export default function Home() {
               that help businesses grow and innovate.
             </p>
 
-            <button className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition">
+            <button className="px-6 py-3 mt-6 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition">
               Get Started
             </button>
           </div>
