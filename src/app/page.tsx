@@ -6,94 +6,92 @@ import NeuronBackground from "@/components/NeuronBackground";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
-import Head from "next/head";
+
+export const metadata = {
+  title: "Eliabyte | Innovative Software Solutions",
+  description:
+    "Eliabyte provides innovative digital solutions including web apps, mobile apps, servers, and security systems. Empowering ideas into technology.",
+  keywords:
+    "Eliabyte, software development, web apps, mobile apps, servers, security systems, IT solutions, Kerala software company",
+  openGraph: {
+    title: "Eliabyte | Innovative Software Solutions",
+    description: "Transforming ideas into innovative digital solutions that shape the future.",
+    url: "https://eliabyte.com",
+    siteName: "Eliabyte",
+    images: [
+      {
+        url: "https://eliabyte.com/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Eliabyte Logo",
+      },
+    ],
+    type: "website",
+  },
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
+};
 
 export default function Home() {
   return (
-    <>
-      {/* SEO Meta Tags */}
-      <Head>
-        <title>Eliabyte | Innovative Software Solutions</title>
-        <meta
-          name="description"
-          content="Eliabyte provides innovative digital solutions including web apps, mobile apps, servers, and security systems. Empowering ideas into technology."
-        />
-        <meta
-          name="keywords"
-          content="Eliabyte, software development, web apps, mobile apps, servers, security systems, IT solutions, Kerala software company"
-        />
-        <meta name="author" content="Eliabyte" />
-        <meta property="og:title" content="Eliabyte | Innovative Software Solutions" />
-        <meta
-          property="og:description"
-          content="Transforming ideas into innovative digital solutions that shape the future."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://eliabyte.com" />
-        <meta property="og:image" content="/og-image.jpg" />
-      </Head>
+    <main className="relative overflow-hidden">
+      {/* Background */}
+      <NeuronBackground />
 
-      <main className="relative overflow-hidden">
-        {/* Background */}
-        <NeuronBackground />
+      {/* Hero Section */}
+      <header
+        id="hero"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 text-center"
+      >
+        {/* Brain Animation Background */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center opacity-60">
+          <BrainAnimation />
+        </div>
 
-        {/* Hero Section */}
-        <header
-          id="hero"
-          className="relative z-10 min-h-screen flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 text-center"
-        >
-          {/* Brain Animation Background */}
-          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-60">
-            <BrainAnimation />
-          </div>
+        {/* Hero Content */}
+        <div className="relative z-10 flex flex-col items-center space-y-6">
+          <AnimatedText />
+          <h1 className="sr-only">
+            Innovative Digital Solutions for <span className="text-green-400">Future</span>
+          </h1>
 
-          {/* Hero Content */}
-          <div className="relative z-10 flex flex-col items-center space-y-6">
-            <AnimatedText />
-            <h1 className="sr-only">
-              Innovative Digital Solutions for <span className="text-green-400">Future</span>
-            </h1>
+          <LaptopAnimation alt="Laptop animation showing Eliabyte technology" />
 
-            <LaptopAnimation alt="Laptop animation showing Eliabyte technology" />
+          <p className="sr-only">
+            At Eliabyte, we build <strong>web apps, mobile apps, security systems, and cloud servers</strong>
+            that help businesses grow and innovate.
+          </p>
 
-            <p className="sr-only">
-              At Eliabyte, we build <strong>web apps, mobile apps, security systems, and cloud servers</strong>
-              that help businesses grow and innovate.
-            </p>
+          <a
+            href="#contact"
+            className="px-6 py-3 mt-6 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+          >
+            Get Started
+          </a>
+        </div>
+      </header>
 
-           <a
-  href="#contact"
-  className="px-6 py-3 mt-6 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition"
->
-  Get Started
-</a>
-          </div>
-        </header>
+      {/* About Section */}
+      <section id="about" className="relative z-10 py-20 bg-gray-950">
+        <AboutSection />
+      </section>
 
-        {/* About Section */}
-        <section id="about" className="relative z-10 py-20 bg-gray-950">
-         
-          <AboutSection />
-        </section>
+      {/* Mission & Vision */}
+      <section id="mission" className="relative z-10 py-20 bg-gray-900">
+        <MissionVisionSection />
+      </section>
 
-        {/* Mission & Vision */}
-        <section id="mission" className="relative z-10 py-20 bg-gray-900">
-       
-          <MissionVisionSection />
-        </section>
+      {/* Services */}
+      <section id="services" className="relative z-10 py-20 bg-gray-950">
+        <ServicesSection />
+      </section>
 
-        {/* Services */}
-        <section id="services" className="relative z-10 py-20 bg-gray-950">
-  
-          <ServicesSection />
-        </section>
-
-        {/* Contact */}
-        <footer id="contact" className="relative z-10 py-20 bg-gray-900">
-      
-          <ContactSection />
-        </footer>
-      </main>
-    </>
+      {/* Contact */}
+      <footer id="contact" className="relative z-10 py-20 bg-gray-900">
+        <ContactSection />
+      </footer>
+    </main>
   );
 }
