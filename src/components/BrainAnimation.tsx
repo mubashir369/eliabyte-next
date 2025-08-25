@@ -5,12 +5,8 @@ import brainAnimation from "@/assets/brain.json";
 
 export default function BrainAnimation() {
   return (
-    <div className="w-full h-[400px] md:h-[500px] lg:h-[600px]">
-      <Lottie 
-        animationData={brainAnimation} 
-        loop={true} 
-        className="w-full h-full"
-      />
+    <div className="w-full h-full flex items-center justify-center">
+      <Lottie animationData={brainAnimation} loop={true} className="w-full h-full max-w-5xl" />
     </div>
   );
 }
