@@ -61,33 +61,36 @@ export default function Home() {
               that help businesses grow and innovate.
             </p>
 
-            <button className="px-6 py-3 mt-6 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition">
-              Get Started
-            </button>
+           <a
+  href="#contact"
+  className="px-6 py-3 mt-6 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+>
+  Get Started
+</a>
           </div>
         </header>
 
         {/* About Section */}
         <section id="about" className="relative z-10 py-20 bg-gray-950">
-          <h2 className="text-3xl font-bold text-center text-white mb-10">About Us</h2>
+         
           <AboutSection />
         </section>
 
         {/* Mission & Vision */}
         <section id="mission" className="relative z-10 py-20 bg-gray-900">
-          <h2 className="text-3xl font-bold text-center text-white mb-10">Our Mission & Vision</h2>
+       
           <MissionVisionSection />
         </section>
 
         {/* Services */}
         <section id="services" className="relative z-10 py-20 bg-gray-950">
-          <h2 className="text-3xl font-bold text-center text-white mb-10">Our Services</h2>
+  
           <ServicesSection />
         </section>
 
         {/* Contact */}
         <footer id="contact" className="relative z-10 py-20 bg-gray-900">
-          <h2 className="text-3xl font-bold text-center text-white mb-10">Get in Touch</h2>
+      
           <ContactSection />
         </footer>
       </main>

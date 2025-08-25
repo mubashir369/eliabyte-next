@@ -9,7 +9,7 @@ const characters = splitter.splitGraphemes(text);
 
 export default function AnimatedText() {
   return (
-    <div className="flex flex-col items-center text-center px-4 md:px-0">
+    <div className="flex mb-16 flex-col items-center text-center px-4 md:px-0">
       {/* Main animated heading */}
       <div className="flex justify-center items-center flex-wrap">
         {characters.map((char, index) => (
