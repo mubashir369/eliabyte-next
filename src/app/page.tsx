@@ -1,6 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import AnimatedText from "@/components/AnimatedText";
-import BrainAnimation from "@/components/BrainAnimation"; 
+import BrainAnimation from "@/components/BrainAnimation";
 import LaptopAnimation from "@/components/LaptopAnimation";
 import NeuronBackground from "@/components/NeuronBackground";
 import MissionVisionSection from "@/components/MissionVisionSection";
@@ -14,7 +14,7 @@ export default function Home() {
       <NeuronBackground />
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4">
+      <section id="hero" className="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto px-4">
         {/* Left: Text + Laptop + Button */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-6 mb-8 md:mb-0">
           <AnimatedText />
@@ -35,9 +35,15 @@ export default function Home() {
       <section id="about" className="relative z-10 py-20 bg-gray-950">
         <AboutSection />
       </section>
-      <MissionVisionSection/>
-      <ServicesSection/>
-      <ContactSection/>
+      <section id="about">
+        <MissionVisionSection />
+      </section>
+      <section id="services">
+        <ServicesSection />
+      </section>
+    <section id="contact">
+        <ContactSection />
+      </section>
     </main>
   );
 }

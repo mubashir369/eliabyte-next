@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -14,48 +13,47 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsOpen(false); // close mobile menu after clicking
+    }
+  };
+
+  const links = [
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "services", label: "Services" },
+    { id: "contact", label: "Contact" },
+  ];
+
   return (
     <nav className="w-full bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-bold text-green-600 dark:text-green-400"
+        <span className="text-2xl font-bold text-green-600 dark:text-green-400 cursor-pointer"
+          onClick={() => handleScroll("hero")}
         >
           Eliabyte
-        </Link>
+        </span>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link
-            href="/"
-            className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-          >
-            About
-          </Link>
-          <Link
-            href="/services"
-            className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-          >
-            Services
-          </Link>
-          <Link
-            href="/contact"
-            className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-          >
-            Contact
-          </Link>
+          {links.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleScroll(link.id)}
+              className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors duration-200"
+            >
+              {link.label}
+            </button>
+          ))}
 
           {/* Dark Mode Toggle */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="px-3 py-1 rounded-md border border-gray-400 dark:border-gray-600 text-sm"
+            className="px-3 py-1 rounded-md border border-gray-400 dark:border-gray-600 text-sm transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700"
           >
             {theme === "dark" ? "🌞" : "🌙"}
           </button>
@@ -74,47 +72,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
           <ul className="flex flex-col items-center space-y-6 py-6 text-lg font-medium">
-            <li>
-              <Link
-                href="/"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 dark:text-gray-300 hover:text-green-500"
-              >
-                Contact
-              </Link>
-            </li>
+            {links.map((link) => (
+              <li key={link.id}>
+                <button
+                  onClick={() => handleScroll(link.id)}
+                  className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-green-500 transition-colors duration-200"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
             <li>
               {/* Dark Mode Toggle */}
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="px-3 py-1 rounded-md border border-gray-400 dark:border-gray-600 text-sm"
+                className="px-3 py-1 rounded-md border border-gray-400 dark:border-gray-600 text-sm transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
               </button>
