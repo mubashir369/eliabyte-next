@@ -32,11 +32,66 @@ export default function Navbar() {
     <nav className="w-full bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <span className="text-2xl font-bold text-green-600 dark:text-green-400 cursor-pointer"
-          onClick={() => handleScroll("hero")}
-        >
-          Eliabyte
-        </span>
+<svg
+  className="h-8 w-auto cursor-pointer transition-opacity hover:opacity-90"
+  viewBox="0 0 170 26"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  onClick={() => handleScroll("hero")}
+  aria-label="Eliabyte Logo"
+>
+  <style>{`
+    .eli-byte-letter {
+      animation: floatLetter 3s ease-in-out infinite;
+    }
+    @keyframes floatLetter {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-1.5px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .arrow-path {
+      animation: arrowWave 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+    @keyframes arrowWave {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .glow:hover {
+      filter: drop-shadow(0 0 6px #00ff66);
+    }
+  `}</style>
+
+  {/* "ELI" */}
+  <text
+    x="0"
+    y="20"
+    className="eli-byte-letter text-2xl font-bold fill-current text-gray-900 dark:text-white font-sans glow"
+    style={{ fontFamily: "sans-serif", fontWeight: 700, letterSpacing: "0.15em" }}
+  >
+    ELI
+  </text>
+
+  {/* Green Arrow */}
+  <path
+    d="M54 21 L65 0 L76 21 H69 L65 11 L61 21 H54Z"
+    className="arrow-path fill-green-500 dark:fill-green-400 glow"
+  />
+
+  {/* "BYTE" */}
+  <text
+    x="86"
+    y="20"
+    className="eli-byte-letter text-2xl font-bold fill-current text-gray-900 dark:text-white font-sans glow"
+    style={{ fontFamily: "sans-serif", fontWeight: 700, letterSpacing: "0.15em" }}
+  >
+    BYTE
+  </text>
+</svg>
+
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6">

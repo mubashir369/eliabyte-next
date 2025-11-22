@@ -6,6 +6,7 @@ import NeuronBackground from "@/components/NeuronBackground";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 export const metadata = {
   title: "Eliabyte | Innovative Software Solutions",
@@ -38,6 +39,7 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden">
       {/* Background */}
+      {/* <AnimatedLogo/> */}
       <NeuronBackground />
 
       {/* Hero Section */}
@@ -47,7 +49,7 @@ export default function Home() {
       >
         {/* Brain Animation Background */}
         <div className="absolute inset-0 z-0 flex items-center justify-center opacity-60">
-          <BrainAnimation />
+          {/* <BrainAnimation /> */}
         </div>
 
         {/* Hero Content */}

@@ -31,3 +31,9 @@ body {
   stroke-dashoffset: 0;
   animation: dash 10s linear infinite;
 }
+
+/* Blur everything except the splash screen */
+.blur-background > *:not(.fixed) {
+  filter: blur(10px);
+  transition: filter 0.4s ease;
+}
